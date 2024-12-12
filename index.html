@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Órarend</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJzX+Vf2KmV4p+9pXTtYd1Vn7sZmJ0nDYP3v5tqZqg1dxzmptlJ0gC3WfV4A" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f4f7fa;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin-top: 40px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #0056b3;
+        }
+        .table th, .table td {
+            text-align: center;
+            vertical-align: middle;
+            font-size: 1.1rem;
+        }
+        .table {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .table th {
+            background-color: #0056b3;
+            color: white;
+            font-weight: 700;
+        }
+        .time-input {
+            width: 80%; /* Csökkentjük a szélességet */
+            max-width: 200px; /* Maximális szélesség */
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin: 0 auto; /* Középre igazítjuk */
+            display: block;
+        }
+        .time-input:focus {
+            border-color: #0056b3;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
+        }
+        .btn-primary {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #00408e;
+            border-color: #00408e;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Órarend</h1>
+
+        <!-- Órarend Táblázat -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Időpont</th>
+                    <th scope="col">Hétfő</th>
+                    <th scope="col">Kedd</th>
+                    <th scope="col">Szerda</th>
+                    <th scope="col">Csütörtök</th>
+                    <th scope="col">Péntek</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 8:00-9:00 -->
+                <tr>
+                    <th scope="row">08:00-09:00</th>
+                    <td><input type="text" class="time-input" id="monday-8" placeholder="Téma..."></td>
+                    <td><input type="text" class="time-input" id="tuesday-8" placeholder="Téma..."></td>
+                    <td><input type="text" class="time-input" id="wednesday-8" placeholder="Téma..."></td>
+                    <td><input type="text" class="time-input" id="thursday-8" placeholder="Téma..."></td>
+                    <td><input type="text" class="time-input" id="friday-8" placeholder="Téma..."></td>
+                </tr>
+                <!-- 9:00-10:00 -->
+                <tr>
+                    <th scope="row">09:00-10:00</th>
+                    <td><input type="text" class="time-input" id="monday-9" placeholder="Téma..."></td>
+                    <td><input type="text" class="time-input" id="tuesday-9" placeholder="Téma..."></td>
+                    <td><input type="text" class="time-input" id="wednesday-9" placeholder="Téma..."></td>
+                    <td><input type="text" class="time-input" id="thursday-9" placeholder="Téma..."></td>
+                    <td><input type="text" class="time-input" id="friday-9" placeholder="Téma..."></td>
+                </tr>
+                <!-- 10:00-11:00 -->
+                <tr>
+                    <th scope="row">10:00-11:00</th>
+                    <td><input type="text" class="time-input" id="monday-10" placeholder="Téma..."></td>
+                    <td><input type="text" class="time-input" id="tuesday-10" placeholder="Téma..."></td>
+                    <td><input type="text" class="time-input" id="wednesday-10" placeholder="Téma..."></td>
+                    <td><input type="text" class="time-input" id="thursday-10" placeholder="Téma..."></td>
+                    <td><input type="text" class="time-input" id="friday-10" placeholder="Téma..."></td>
+                </tr>
+                <!-- 11:00-12:00 -->
+                <tr>
+                    <th scope="row">11:00-12:00</th>
+                    <td><input type="text" class="time-input" id="monday-11" placeholder="Téma..."></td>
+                    <td><input type="text" class="time-input" id="tuesday-11" placeholder="Téma..."></td>
+                    <td><input type="text" class="time-input" id="wednesday-11" placeholder="Téma..."></td>
+                    <td><input type="text" class="time-input" id="thursday-11" placeholder="Téma..."></td>
+                    <td><input type="text" class="time-input" id="friday-11" placeholder="Téma..."></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Mentés gomb -->
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" onclick="saveSchedule()">Órarend mentése</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Varga Richárd - Órarend projekt</p>
+    </div>
+
+    <script>
+        // Mentés funkció
+        function saveSchedule() {
+            const schedule = {
+                monday: {
+                    "08:00-09:00": document.getElementById('monday-8').value,
+                    "09:00-10:00": document.getElementById('monday-9').value,
+                    "10:00-11:00": document.getElementById('monday-10').value,
+                    "11:00-12:00": document.getElementById('monday-11').value
+                },
+                tuesday: {
+                    "08:00-09:00": document.getElementById('tuesday-8').value,
+                    "09:00-10:00": document.getElementById('tuesday-9').value,
+                    "10:00-11:00": document.getElementById('tuesday-10').value,
+                    "11:00-12:00": document.getElementById('tuesday-11').value
+                },
+                wednesday: {
+                    "08:00-09:00": document.getElementById('wednesday-8').value,
+                    "09:00-10:00": document.getElementById('wednesday-9').value,
+                    "10:00-11:00": document.getElementById('wednesday-10').value,
+                    "11:00-12:00": document.getElementById('wednesday-11').value
+                },
+                thursday: {
+                    "08:00-09:00": document.getElementById('thursday-8').value,
+                    "09:00-10:00": document.getElementById('thursday-9').value,
+                    "10:00-11:00": document.getElementById('thursday-10').value,
+                    "11:00-12:00": document.getElementById('thursday-11').value
+                },
+                friday: {
+                    "08:00-09:00": document.getElementById('friday-8').value,
+                    "09:00-10:00": document.getElementById('friday-9').value,
+                    "10:00-11:00": document.getElementById('friday-10').value,
+                    "11:00-12:00": document.getElementById('friday-11').value
+                }
+            };
+
+            // Kiírja a konzolra a mentett órarendet
+            console.log("Mentett órarend:", schedule);
+
+            // Itt lehetőség van adatbázisba mentésre, vagy localStorage-ba stb.
+            alert("Órarend mentve!");
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
